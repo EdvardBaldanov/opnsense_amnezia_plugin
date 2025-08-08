@@ -1,0 +1,9 @@
+<menu>
+  <VPN>
+    <AmneziaWG cssClass="fa fa-lock fa-fw">
+        <Instances order="10" url="/ui/amneziawg/general#instances"/>
+        <Import order="15" url="/ui/amneziawg/import/"/>
+        <Status order="20" url="/ui/amneziawg/diagnostics/"/>
+    </AmneziaWG>
+  </VPN>
+</menu>

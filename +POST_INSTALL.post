@@ -1,0 +1,4 @@
+echo -n 'Setting executable permissions for AmneziaWG scripts: '
+chmod +x /usr/local/opnsense/scripts/AmneziaWG/*.php
+chmod +x /usr/local/opnsense/scripts/AmneziaWG/*.py
+echo 'done'

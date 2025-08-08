@@ -1,0 +1,105 @@
+<model>
+    <mount>//OPNsense/amneziawg/instance</mount>
+    <description>AmneziaWG instance configuration</description>
+    <version>1.0.0</version>
+    <items>
+        <instances>
+            <instance type=".\InstanceField">
+                <enabled type="BooleanField">
+                    <Default>1</Default>
+                    <Required>Y</Required>
+                </enabled>
+                <name type="TextField">
+                    <Required>Y</Required>
+                    <Mask>/^([0-9a-zA-Z._\-]){1,64}$/u</Mask>
+                    <ValidationMessage>Should be a string between 1 and 64 characters. Allowed characters are alphanumeric characters, dash and underscores.</ValidationMessage>
+                </name>
+                <instance type="AutoNumberField">
+                    <Required>Y</Required>
+                    <MinimumValue>0</MinimumValue>
+                </instance>
+                <description type="TextField"/>
+                <private_key type="TextField">
+                    <Required>Y</Required>
+                    <ValidationMessage>A private key is required</ValidationMessage>
+                </private_key>
+                <listen_port type="IntegerField">
+                    <MinimumValue>1</MinimumValue>
+                    <MaximumValue>65535</MaximumValue>
+                </listen_port>
+                <address type="NetworkField">
+                    <AsList>Y</AsList>
+                </address>
+                <dns type="NetworkField">
+                    <AsList>Y</AsList>
+                    <NetMaskAllowed>N</NetMaskAllowed>
+                    <WildcardEnabled>N</WildcardEnabled>
+                    <ValidationMessage>Please use valid IPv4 or IPv6 addresses.</ValidationMessage>
+                </dns>
+                <table type="TextField">
+                    <Default>off</Default>
+                </table>
+                <postup type="TextField"/>
+                <preup type="TextField"/>
+                <mtu type="IntegerField">
+                    <MinimumValue>1</MinimumValue>
+                    <MaximumValue>9300</MaximumValue>
+                </mtu>
+                <jc type="IntegerField">
+                    <Default>7</Default>
+                </jc>
+                <jmin type="IntegerField">
+                    <Default>150</Default>
+                </jmin>
+                <jmax type="IntegerField">
+                    <Default>1000</Default>
+                </jmax>
+                <s1 type="IntegerField">
+                    <Default>117</Default>
+                </s1>
+                <s2 type="IntegerField">
+                    <Default>321</Default>
+                </s2>
+                <h1 type="IntegerField">
+                    <Default>2008066467</Default>
+                </h1>
+                <h2 type="IntegerField">
+                    <Default>2351746464</Default>
+                </h2>
+                <h3 type="IntegerField">
+                    <Default>3053333659</Default>
+                </h3>
+                <h4 type="IntegerField">
+                    <Default>1789444460</Default>
+                </h4>
+                <userland type="BooleanField">
+                    <Default>0</Default>
+                </userland>
+                <!-- Peer settings (only one peer per instance) -->
+                <peer_public_key type="TextField">
+                    <Required>Y</Required>
+                    <ValidationMessage>A peer public key is required</ValidationMessage>
+                </peer_public_key>
+                <peer_preshared_key type="TextField"/>
+                <peer_allowed_ips type="NetworkField">
+                    <AsList>Y</AsList>
+                    <Default>0.0.0.0/0,::/0</Default>
+                </peer_allowed_ips>
+                <peer_endpoint type="TextField">
+                    <Required>Y</Required>
+                    <ValidationMessage>A peer endpoint is required</ValidationMessage>
+                </peer_endpoint>
+                <peer_persistent_keepalive type="IntegerField">
+                    <Default>25</Default>
+                    <MinimumValue>1</MinimumValue>
+                    <MaximumValue>86400</MaximumValue>
+                </peer_persistent_keepalive>
+                <peer_routes type="TextField"/>
+                <!-- Volatile fields -->
+                <cnfFilename type="TextField" volatile="true"/>
+                <statFilename type="TextField" volatile="true"/>
+                <interface type="TextField" volatile="true"/>
+            </instance>
+        </instances>
+    </items>
+</model> 
