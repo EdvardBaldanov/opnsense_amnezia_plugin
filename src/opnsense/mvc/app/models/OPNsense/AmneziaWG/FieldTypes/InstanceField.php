@@ -1,6 +1,6 @@
 <?php
 
-namespace OPNsense\AmneziaWG\FieldTypes;
+namespace OPNsense\AmneziaWG #\FieldTypes;
 
 use OPNsense\Base\FieldTypes\ArrayField;
 
